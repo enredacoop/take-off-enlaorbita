@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>enlaorbita.com take off</title>
+    <style>
+        html,
+        body {
+          height: 100%;
+          font-size: 20vw;
+        }
+        body {
+          background: #1C2F37 url('https://enlaorbita.com/static/images/bg_space.jpg') no-repeat top center;
+        }
+        .img-wrapper {
+            text-align: right;
+        }
+        img {
+            width: 250px;
+            padding: 10px;
+        }
+        iframe {
+            overflow:hidden;
+            overflow-x:hidden;
+            overflow-y:hidden;
+            height:100%;
+            width:100%;
+            position:absolute;
+            top:0px;
+            left:0px;
+            right:0px;
+            bottom:0px;
+            height": 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-wrapper">
+        <img src="https://enlaorbita.com/static/images/logo.png" alt="Logo de enlaorbita.com">
+    </div>
+    
+    <div id="player"></div>
+
+    <script>
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          videoId: 'pCODdOblwJ0',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == 0) {
+          window.location = 'https://www.enlaorbita.com'
+        }
+      }
+    </script>
+
+</body>
+</html>
